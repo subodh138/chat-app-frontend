@@ -21,7 +21,7 @@ const Form = ({
     console.log('Sending data :>> ', data);
 
     try {
-      const res = await fetch(`http://localhost:8000/api/${isSignInPage ? 'login' : 'register'}`, {
+      const res = await fetch(`https://chat-app-backend-my57.onrender.com/api/${isSignInPage ? 'login' : 'register'}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -55,8 +55,7 @@ const Form = ({
       }
 
     } catch (err) {
-      console.error("Network Fetch Error: ", err);
-      alert("Failed to connect to backend server. Make sure it is running on port 8000!");
+      alert("Failed to connect to the live backend server. Please try again!");
     }
   }
 
