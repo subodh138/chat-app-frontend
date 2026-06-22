@@ -29,7 +29,7 @@ const Dashboard = () => {
 
     // Connect to the backend socket system on startup
     useEffect(() => {
-        const socketInstance = io('http://localhost:8000'); 
+        const socketInstance = io('https://chat-app-backend-my57.onrender.com'); 
         setSocket(socketInstance);
         
         return () => socketInstance.disconnect();
@@ -39,7 +39,7 @@ const Dashboard = () => {
     const fetchConversations = useCallback(async () => {
         if (!userId) return;
         try {
-            const res = await fetch(`http://localhost:8000/api/conversations/${userId}`, {
+            const res = await fetch(`https://chat-app-backend-my57.onrender.com/api/conversations/${userId}`, {
                 method: 'GET',
                 headers: { 'Content-Type': 'application/json' }
             });
@@ -98,7 +98,7 @@ const Dashboard = () => {
         if (!receiverId) return;
 
         try {
-            const res = await fetch(`http://localhost:8000/api/message?senderId=${userId}&receiverId=${receiverId}`, {
+            const res = await fetch(`https://chat-app-backend-my57.onrender.com/api/message?senderId=${userId}&receiverId=${receiverId}`, {
                 method: 'GET',
                 headers: { 'Content-Type': 'application/json' }
             });
@@ -116,7 +116,7 @@ const Dashboard = () => {
     useEffect(() => {
         const fetchAllUsers = async () => {
             try {
-                const res = await fetch(`http://localhost:8000/api/users`, {
+                const res = await fetch(`https://chat-app-backend-my57.onrender.com/api/users`, {
                     method: 'GET',
                     headers: { 'Content-Type': 'application/json' }
                 });
@@ -188,7 +188,7 @@ const Dashboard = () => {
 
         // Background DB verification state persistence call
         try {
-            await fetch(`http://localhost:8000/api/message`, {
+            await fetch(`https://chat-app-backend-my57.onrender.com/api/message`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
