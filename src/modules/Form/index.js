@@ -61,7 +61,7 @@ const Form = ({
 
   return (
     <div className='bg-light h-screen flex items-center justify-center'>
-      <div className=" bg-white w-[500px] h-[600px] shadow-lg rounded-lg flex flex-col justify-center items-center">
+      <div className="bg-white w-[90%] max-w-[450px] min-h-[550px] p-6 shadow-lg rounded-lg flex flex-col justify-center items-center mx-4">
           <div className=" text-4xl font-extrabold">Welcome {isSignInPage && 'Back'}</div>
           <div className="text-2xl font-light mb-14">{isSignInPage ? 'Sign in to get explored' : 'Sign up now to get started'}</div>
 
@@ -71,7 +71,7 @@ const Form = ({
           }
           <Input label="Email Address" type="email" name="email" placeholder="Enter your email" className="mb-6 w-[75%]" value={data.email} onChange={(e) => setData({ ...data, email: e.target.value}) }/>
           <Input label="Password" type="password" name="password" placeholder="Enter your Password" className="mb-10 w-[75%]" value={data.password} onChange={(e) => setData({ ...data, password: e.target.value}) }/>
-          <Button type="submit" label={isSignInPage ? 'Sign-in' : 'Sign Up'} className="w-[75%] mb-2"/>
+          <Button type="submit" label={isSignInPage ? 'Sign-in' : 'Sign Up'} className="mb-6 w-[90%] md:w-[75%]"/>
           </form>
 
           <div>{ isSignInPage ? "Didn't have an account?" : "Already have an account?"} <span className=" text-primary cursor-pointer underline" onClick={() => navigate(`/users/${isSignInPage ? 'sign_up' : 'sign_in'}`)}>{ isSignInPage ? 'sign-up' : 'Sign in'}</span></div>
